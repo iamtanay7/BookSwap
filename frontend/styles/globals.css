@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: rgba(0, 0, 0, 1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+/* PRODUCT DETAILS CAROUSEL STYLING CUSTOMIZATION START */
+.productCarousel.carousel-root {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
+}
+.productCarousel.carousel-root .carousel {
+  width: auto;
+}
+.productCarousel.carousel-root .carousel.carousel-slider {
+  width: 100%;
+}
+.productCarousel.carousel-root .carousel.carousel-slider .slider-wrapper {
+  border-radius: 10px;
+}
+.productCarousel.carousel-root .carousel .thumbs-wrapper {
+  margin: 0;
+}
+.productCarousel.carousel-root .carousel .thumb {
+  height: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.productCarousel.carousel-root .carousel .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.productCarousel.carousel-root .carousel .thumb:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+}
+.productCarousel.carousel-root .carousel .thumb.selected,
+.productCarousel.carousel-root .carousel .thumb:hover {
+  border: 0;
+}
+.productCarousel.carousel-root .carousel .thumb:hover:after,
+.productCarousel.carousel-root .carousel .thumb.selected:after {
+  opacity: 0.2;
+}
+.productCarousel .control-arrow {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .productCarousel.carousel-root {
+    flex-direction: column;
+  }
+  .productCarousel.carousel-root .carousel .thumb {
+    border: 0;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .productCarousel.carousel-root .carousel .thumbs {
+    transform: none !important;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+  }
+  .productCarousel.carousel-root .carousel .thumb {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+/* PRODUCT DETAILS CAROUSEL STYLING CUSTOMIZATION END */
+
+.markdown ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc;
+  margin: 20px 0;
+}
+.markdown ul li {
+  margin: 10px 0;
+}
+
+/* SEARCH BAR STYLING */
+#search-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: white;
+  transform: translateY(100%);
+  animation: slideSearchWindow 0.5s ease forwards;
+}
+
+#form-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 0;
+  }
+}
+#search-input {
+  width: 100%;
+  max-width: 1200px;
+  height: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    height: 80px;
+  }
+}
+/* PLACEHOLDER COLOR CHANGE */
+
+/* #search-input::placeholder {
+  color: #212121;
+  opacity: 1;
+}
+::-ms-input-placeholder {
+  color: #212121;
+} */
+
+#close-btn {
+  position: absolute;
+
+  font-size: 20px;
+  right: 20px;
+  color: grey;
+  opacity: 75%;
+  top: 25px;
+  transform: translate(-50%);
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    top: 35px;
+    right: 40px;
+    font-size: 40px;
+  }
+}
+
+@keyframes slideSearchWindow {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+#search-result-content {
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    max-width: 800px;
+  }
+}
+#search-results {
+  height: calc(100vh-110px);
+  overflow: auto;
+  margin: 20px 0;
+
+  @media screen and (min-width: 768px) {
+    height: calc(100vh-160px);
+    width: 100%;
+  }
+}
+#search-result-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(96, 21, 21, 0.1);
+  cursor: pointer;
+}
+#img-container {
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+#img-product {
+  width: 100%;
+  height: 100%;
+}
+#prod-details {
+  overflow: hidden;
+}
+
+#prod-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: block;
+}
+#prod-desc {
+  font-size: 14px;
+  line-height: 1;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.5);
+}
+#start-msg {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#rounded-player {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* .clientCarousel.control-arrow{
+  background-color: black;
+} */
+
+/* .clientCarousel .carousel .control-arrow {
+  width: 34px;
+  height: 34px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clientCarousel .carousel .carousel-status {
+  text-shadow: none;
+  color: #aaaaaa;
+  padding: 20px;
+  font-size: 16px;
+} */
+
+.clientCarousel .carousel .control-arrow {
+  width: 34px;
+  height: 34px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clientCarousel .carousel .control-prev.control-arrow:before {
+  border-right: 8px solid #000;
+}
+.clientCarousel .carousel .control-next.control-arrow:before {
+  border-left: 8px solid #000;
+}
+.clientCarousel .carousel .control-prev {
+  left: 25px !important;
+}
+.clientCarousel .carousel .control-next {
+  right: 25px !important;
+}
+.clientCarousel .carousel .carousel-status {
+  text-shadow: none;
+  color: #aaaaaa;
+  padding: 20px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .clientCarousel .carousel .control-arrow {
+    display: none;
+  }
+}
+
+/* place holder center */
+.placeholder-center::placeholder {
+  text-align: center;
+  /* Additional styles for placeholder text */
+}
