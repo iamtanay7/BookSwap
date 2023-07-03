@@ -1,7 +1,9 @@
 // import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "@/styles/globals.css";
 import Head from "next/head";
+
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,7 +15,7 @@ export default function App({ Component, pageProps }) {
           content="Book Swap | Exchange your old Books"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -52,7 +54,7 @@ export default function App({ Component, pageProps }) {
 
       <Header></Header>
       <Component {...pageProps} />
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </>
   );
 }

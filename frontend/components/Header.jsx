@@ -6,12 +6,34 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Search from "./Search";
 import NavIcons from "./NavIcons";
 
 const Header = () => {
   const [show, setShow] = useState("translate-y-0");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const controlNavbar = () => {
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+        setShow("-translate-y-[80px]");
+      } else {
+        setShow("shadow-sm");
+      }
+    } else {
+      setShow("translate-y-0");
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
@@ -30,7 +52,7 @@ const Header = () => {
               className="w-[100px] md:w-[140px]"
             />
           </Link>
-        <Search></Search>
+          <Search></Search>
           <NavIcons></NavIcons>
         </Wrapper>
       </header>

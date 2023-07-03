@@ -18,11 +18,7 @@ const NavIcons = () => {
           <IoMdHeartEmpty color="black" className="text-[19px]  md:text-[24px]" />
         </section>
       </Link>
-      <Link href="/cart">
-        <section className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-          <BsCart color="black" className="text-[15px] md:text-[20px] transition-transform active:scale-90" />
-        </section>
-      </Link>
+      
       <Link href="/chat">
         <section className="w-8 hidden  md:flex md:w-12 h-8 md:h-12 rounded-full  justify-center items-center hover:bg-black/[0.05] cursor-pointer relative transition-transform active:scale-90">
           <BsChatDots color="black" className="text-[19px] md:text-[24px]" />
