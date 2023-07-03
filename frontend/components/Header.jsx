@@ -44,7 +44,7 @@ const Header = () => {
           <Link
             href="/"
             // onClick={() => setMobileMenu(false)}
-            className="transition-transform active:scale-95"
+            className="hidden md:block transition-transform active:scale-95"
           >
             <img
               src="/assets/bookswap.png"

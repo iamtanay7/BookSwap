@@ -1,3 +1,4 @@
+import PeopleNearMe from "@/components/PeopleNearMe";
 import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
 import Wrapper from "@/components/Wrapper";
 import Image from "next/image";
@@ -46,9 +47,7 @@ const ProductDetails = () => {
             </p>
           </section>
           <section>
-            <h2 className="text-2xl">Book Exchange Near Me</h2>
-
-            <div>People Near Me Seciton</div>
+            <PeopleNearMe></PeopleNearMe>
           </section>
         </div>
       </Wrapper>

@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 function Search() {
   return (
-    <form className="flex items-center w-1/2">
+    <form className="flex items-center w-full  md:w-1/2">
       <div className="relative w-full">
         <input
           type="text"
