@@ -47,7 +47,7 @@ const Header = () => {
             className="hidden md:block transition-transform active:scale-95"
           >
             <img
-              src="/assets/bookswap.png"
+              src="/assets/bookswaplogo.svg"
               alt="main logo"
               className="w-[100px] md:w-[140px]"
             />
