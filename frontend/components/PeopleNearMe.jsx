@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCard from "./ProductCard";
+import PeopleCard from "./PeopleCard";
 
 const PeopleNearMe = () => {
   const responsive = {
@@ -27,15 +28,17 @@ const PeopleNearMe = () => {
         containerClass="-mx-[10px]"
         itemClass="px-[10px]"
       >
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+        <PeopleCard></PeopleCard>
+       
       </Carousel>
     </div>
   );

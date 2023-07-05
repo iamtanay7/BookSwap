@@ -83,7 +83,7 @@ const ProductDetails = () => {
               your time and attention? That's what this book is about.
             </div>
           </section>
-          <div class="w-[751px] h-[0px] border border-[#E3E3E3] mx-auto"></div>
+          <div class="w-[851px] h-[0px] border border-[#E3E3E3] mx-auto"></div>
           {/* Synopsis section end */}
 
           {/* Book Swap Near Me section Component Start*/}
