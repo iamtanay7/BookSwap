@@ -1,8 +1,5 @@
 import React from "react";
-import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-import Wrapper from "./Wrapper";
-import Link from "next/link";
-import Image from "next/image";
+
 
 const Footer = () => {
   return (
