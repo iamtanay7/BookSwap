@@ -15,7 +15,7 @@ const login = () => {
     <main className="flex :h-[100vh] font-urbanist md:-mt-10">
       <div className="w-full  p-8 md:p-14 flex items-center justify-center ">
         <div className="p-8 w-[600px] justify-center text-center  ">
-          <h1 className="text-[34px] md:text-[40px]  text-red-300 font-semibold">Login</h1>
+          <h1 className="text-[34px] md:text-[40px]  text-[#EBBA0C] font-semibold">Login</h1>
           <p className="mt-6 ml-1">
             Don't have an account ?{" "}
             <Link
@@ -56,7 +56,7 @@ const login = () => {
               />
             </div>
             <button
-              className="bg-red-300  text-white w-full md:w-[50%] py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 "
+              className="bg-[#EBBA0C]  text-white w-full md:w-[50%] py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 "
             //   onClick={loginHandler}
             >
               Sign in

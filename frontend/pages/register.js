@@ -12,7 +12,7 @@ const register = () => {
       <main className="flex :h-[100vh] font-urbanist md:-mt-16">
         <div className="w-full  p-8 md:p-14 flex items-center justify-center">
           <div className="p-8 w-[600px] justify-center text-center">
-            <h1 className="text-[34px] md:text-[40px] font-semibold text-red-300">
+            <h1 className="text-[34px] md:text-[40px] font-semibold text-[#EBBA0C]">
               Register for BookSwap
             </h1>
             <p className="mt-6 ml-1">
@@ -27,7 +27,7 @@ const register = () => {
 
             <div
               className="bg-black/[0.05] text-white w-full py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 flex justify-center items-center gap-4 cursor-pointer group"
-            //   onClick={signInWithGoogle}
+              //   onClick={signInWithGoogle}
             >
               <FcGoogle size={22} />
               <span className="font-medium text-black group-hover:text-white">
@@ -41,7 +41,7 @@ const register = () => {
                 <input
                   type="text"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                //   onChange={(e) => setUsername(e.target.value)}
+                  //   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </div>
@@ -51,7 +51,7 @@ const register = () => {
                   type="email"
                   name="email"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                //   onChange={(e) => setEmail(e.target.value)}
+                  //   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -61,12 +61,12 @@ const register = () => {
                   type="password"
                   name="password"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                //   onChange={(e) => setPassword(e.target.value)}
+                  //   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
               <button
-                className="bg-red-300  text-white w-full md:w-[50%] py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90"
+                className="bg-[#EBBA0C]  text-white w-full md:w-[50%] py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90"
                 // onClick={singupHandler}
               >
                 Sign Up

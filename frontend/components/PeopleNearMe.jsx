@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import ProductCard from "./ProductCard";
 import PeopleCard from "./PeopleCard";
 
 const PeopleNearMe = () => {
@@ -22,7 +21,6 @@ const PeopleNearMe = () => {
 
   return (
     <div className="mt-8 mb-[100px] md:mb-0">
-      {/* <div className="text-2xl my-5">Book ExChange NearBy</div> */}
       <Carousel
         responsive={responsive}
         containerClass="-mx-[10px]"

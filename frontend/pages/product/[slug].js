@@ -7,10 +7,11 @@ import React from "react";
 
 import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
+import BookReviews from "@/components/BookReviews";
 
 const ProductDetails = () => {
   return (
-    <div className="w-full md:py-20 ">
+    <div className="w-full md:pt-20 md:pb-16 ">
       <Wrapper>
         <div className="">
           {/* book Image and Titles section start */}
@@ -87,7 +88,7 @@ const ProductDetails = () => {
           {/* Synopsis section end */}
 
           {/* Book Swap Near Me section Component Start*/}
-          <section className="mt-8">
+          <section className="my-12">
             <div class="w-80 h-[31px] text-black text-[24px] font-semibold">
               Book Swaps Near Me
             </div>
@@ -98,6 +99,16 @@ const ProductDetails = () => {
             {/* book nearme Component end */}
           </section>
           {/* Book Swap Near Me section End*/}
+
+          <section className="mt-12">
+            <div class="w-[851px] h-[0px] border border-[#E3E3E3] mx-auto "></div>
+            <div className="w-[245px] h-[31px] text-black text-[24px] font-semibold py-8 mt-4">
+              Book Reviews
+            </div>
+            <div className="flex justify-center items-center pt-4">
+              <BookReviews></BookReviews>
+            </div>
+          </section>
         </div>
       </Wrapper>
     </div>
