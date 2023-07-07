@@ -11,7 +11,7 @@ import BookReviews from "@/components/BookReviews";
 
 const ProductDetails = () => {
   return (
-    <div className="w-full md:pt-20 md:pb-16 ">
+    <div className="w-full md:pt-20 md:pb-8 ">
       <Wrapper>
         <div className="">
           {/* book Image and Titles section start */}
@@ -88,7 +88,7 @@ const ProductDetails = () => {
           {/* Synopsis section end */}
 
           {/* Book Swap Near Me section Component Start*/}
-          <section className="my-12">
+          <section className="my-8">
             <div class="w-80 h-[31px] text-black text-[24px] font-semibold">
               Book Swaps Near Me
             </div>
@@ -100,12 +100,12 @@ const ProductDetails = () => {
           </section>
           {/* Book Swap Near Me section End*/}
 
-          <section className="mt-12">
+          <section className="mt-8 mb-4">
             <div class="w-[851px] h-[0px] border border-[#E3E3E3] mx-auto "></div>
-            <div className="w-[245px] h-[31px] text-black text-[24px] font-semibold py-8 mt-4">
+            <div className="w-[245px] h-[31px] text-black text-[24px] font-semibold py-12 ">
               Book Reviews
             </div>
-            <div className="flex justify-center items-center pt-4">
+            <div className="flex justify-center items-center pt-2">
               <BookReviews></BookReviews>
             </div>
           </section>
