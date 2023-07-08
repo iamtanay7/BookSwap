@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Pending = () => {
@@ -41,11 +42,13 @@ const Pending = () => {
         </div>
       </section>
       <section className="flex justify-center">
-        <div className="w-[226px] h-[66px] flex justify-center items-center bg-[#228D5A] rounded-xl shadow">
-          <div className="w-[211px] text-center text-[#FFF1F1] text-[24px] font-semibold">
-            Return to Home
+        <Link href="/">
+          <div className="w-[226px] h-[66px] flex justify-center items-center bg-[#228D5A] rounded-xl shadow">
+            <div className="w-[211px] text-center text-[#FFF1F1] text-[24px] font-semibold">
+              Return to Home
+            </div>
           </div>
-        </div>
+        </Link>
       </section>
     </div>
   );

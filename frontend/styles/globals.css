@@ -317,3 +317,22 @@
   text-align: center;
   /* Additional styles for placeholder text */
 }
+/* date styling */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  /* display: none; */
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: x-large;
+}
+
+/* time style */
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-clear-button {
+  /* display: none; */
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: x-large;
+}
