@@ -10,10 +10,14 @@ import { useState, useEffect } from "react";
 import Search from "./Search";
 import NavIcons from "./NavIcons";
 
+import { useAuth } from "@/firebase/auth";
+
 const Header = () => {
   const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  const { authUser, isLoading, signOut } = useAuth();
 
   const controlNavbar = () => {
     if (window.scrollY > 200) {
@@ -52,6 +56,16 @@ const Header = () => {
               className="w-[100px] md:w-[140px]"
             />
           </Link>
+          <div>
+            <button
+              onClick={() => {
+                console.log("logout");
+                signOut();
+              }}
+            >
+              LogOut
+            </button>
+          </div>
           <Search></Search>
           <NavIcons></NavIcons>
         </Wrapper>

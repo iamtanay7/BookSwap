@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 const NavIcons = () => {
   return (
     <div className="-ml-14 justify-between gap-4 hidden md:flex">
@@ -16,6 +17,7 @@ const NavIcons = () => {
       <Link href="/profile">
         <div className="text-zinc-600 text-[16px] font-semibold">Profile</div>
       </Link>
+      
     </div>
   );
 };

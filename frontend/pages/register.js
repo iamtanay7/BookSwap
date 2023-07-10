@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
@@ -12,6 +14,8 @@ import {
 import { auth } from "@/firebase/firebase";
 import { useAuth } from "@/firebase/auth";
 
+import Loader from "@/components/Loader";
+
 const provider = new GoogleAuthProvider();
 
 const register = () => {
@@ -19,6 +23,13 @@ const register = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const { authUser, isLoading, setAuthUser } = useAuth();
+
+  const router = useRouter();
+  useEffect(() => {
+    if (!isLoading && authUser) {
+      router.push("/");
+    }
+  }, [authUser, isLoading]);
 
   const singupHandler = async () => {
     if (!email || !password || !username) return;
@@ -32,14 +43,13 @@ const register = () => {
         displayName: username,
       });
 
-      console.log(user ,"user");
+      console.log(user, "user");
 
-      // setAuthUser({
-      //   uid: user.uid,
-      //   email: user.email,
-      //   username,
-      // });
-
+      setAuthUser({
+        uid: user.uid,
+        email: user.email,
+        username,
+      });
     } catch (error) {
       console.error("An error occured", error);
     }
@@ -54,7 +64,9 @@ const register = () => {
     }
   };
 
-  return (
+  return isLoading || (!isLoading && authUser) ? (
+    <Loader></Loader>
+  ) : (
     <div>
       <main className="flex :h-[100vh] font-urbanist md:-mt-16">
         <div className="w-full  p-8 md:p-14 flex items-center justify-center">

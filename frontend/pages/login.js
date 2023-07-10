@@ -22,9 +22,6 @@ const login = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(isLoading, "isloading");
-    console.log(authUser, "authUser");
-
     if (!isLoading && authUser) {
       router.push("/");
     }
