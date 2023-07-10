@@ -2,10 +2,57 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+
+import { auth } from "@/firebase/firebase";
+import { useAuth } from "@/firebase/auth";
+
+const provider = new GoogleAuthProvider();
+
 const register = () => {
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const { authUser, isLoading, setAuthUser } = useAuth();
+
+  const singupHandler = async () => {
+    if (!email || !password || !username) return;
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(auth.currentUser, {
+        displayName: username,
+      });
+
+      console.log(user ,"user");
+
+      // setAuthUser({
+      //   uid: user.uid,
+      //   email: user.email,
+      //   username,
+      // });
+
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+      const user = await signInWithPopup(auth, provider);
+      console.log(user, "google user sign up");
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
 
   return (
     <div>
@@ -27,7 +74,7 @@ const register = () => {
 
             <div
               className="bg-black/[0.05] text-white w-full py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 flex justify-center items-center gap-4 cursor-pointer group"
-              //   onClick={signInWithGoogle}
+              onClick={signInWithGoogle}
             >
               <FcGoogle size={22} />
               <span className="font-medium text-black group-hover:text-white">
@@ -41,7 +88,7 @@ const register = () => {
                 <input
                   type="text"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                  //   onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </div>
@@ -51,7 +98,7 @@ const register = () => {
                   type="email"
                   name="email"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                  //   onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -61,13 +108,13 @@ const register = () => {
                   type="password"
                   name="password"
                   className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-                  //   onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
               <button
                 className="bg-[#EBBA0C]  text-white w-full md:w-[50%] py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90"
-                // onClick={singupHandler}
+                onClick={singupHandler}
               >
                 Sign Up
               </button>
