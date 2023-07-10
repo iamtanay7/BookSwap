@@ -11,6 +11,7 @@ import {
 
 import { auth } from "@/firebase/firebase";
 import { useAuth } from "@/firebase/auth";
+import Loader from "@/components/Loader";
 
 const provider = new GoogleAuthProvider();
 
@@ -50,7 +51,9 @@ const login = () => {
     }
   };
 
-  return (
+  return isLoading || (!isLoading && authUser) ? (
+    <Loader></Loader>
+  ) : (
     <main className="flex :h-[100vh] font-urbanist md:-mt-10">
       <div className="w-full  p-8 md:p-14 flex items-center justify-center ">
         <div className="p-8 w-[600px] justify-center text-center  ">
