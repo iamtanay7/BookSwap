@@ -1,9 +1,9 @@
 // import Footer from "@/components/Footer";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { AuthUserProvider } from "@/firebase/auth";
 import "@/styles/globals.css";
 import Head from "next/head";
-
 
 export default function App({ Component, pageProps }) {
   return (
@@ -52,9 +52,11 @@ export default function App({ Component, pageProps }) {
         <meta name="theme-color" content="#ffffff" /> */}
       </Head>
 
-      <Header></Header>
-      <Component {...pageProps} />
-      <Footer></Footer>
+      <AuthUserProvider>
+        <Header></Header>
+        <Component {...pageProps} />
+        <Footer></Footer>
+      </AuthUserProvider>
     </>
   );
 }

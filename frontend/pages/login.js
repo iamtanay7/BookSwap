@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
@@ -17,6 +18,16 @@ const login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const { authUser, isLoading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(isLoading, "isloading");
+    console.log(authUser, "authUser");
+
+    if (!isLoading && authUser) {
+      router.push("/");
+    }
+  }, [authUser, isLoading]);
 
   const loginHandler = async () => {
     if (!email || !password) {
