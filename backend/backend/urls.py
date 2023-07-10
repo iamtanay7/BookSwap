@@ -1,22 +1,22 @@
-"""
-URL configuration for backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
+from swaprequests.views import (
+    BookListCreateAPIView,
+    BookRetrieveUpdateDestroyAPIView,
+    UserProfileListCreateAPIView,
+    UserProfileRetrieveUpdateDestroyAPIView,
+    BookReviewListCreateAPIView,
+    BookReviewRetrieveUpdateDestroyAPIView,
+    BookExchangeListCreateAPIView,
+    BookExchangeRetrieveUpdateDestroyAPIView
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/books/', BookListCreateAPIView.as_view(), name='book-list-create'),
+    path('api/books/<int:pk>/', BookRetrieveUpdateDestroyAPIView.as_view(), name='book-retrieve-update-destroy'),
+    path('api/user-profiles/', UserProfileListCreateAPIView.as_view(), name='user-profile-list-create'),
+    path('api/user-profiles/<int:pk>/', UserProfileRetrieveUpdateDestroyAPIView.as_view(), name='user-profile-retrieve-update-destroy'),
+    path('api/book-reviews/', BookReviewListCreateAPIView.as_view(), name='book-review-list-create'),
+    path('api/book-reviews/<int:pk>/', BookReviewRetrieveUpdateDestroyAPIView.as_view(), name='book-review-retrieve-update-destroy'),
+    path('api/book-exchanges/', BookExchangeListCreateAPIView.as_view(), name='book-exchange-list-create'),
+    path('api/book-exchanges/<int:pk>/', BookExchangeRetrieveUpdateDestroyAPIView.as_view(), name='book-exchange-retrieve-update-destroy'),
 ]
