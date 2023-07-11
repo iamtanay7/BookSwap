@@ -15,7 +15,7 @@ const PeopleNearMe = () => {
     },
     mobile: {
       breakpoint: { max: 767, min: 0 },
-      items: 3,
+      items: 2,
     },
   };
 
