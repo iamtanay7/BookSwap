@@ -62,7 +62,9 @@ const NavIcons = ({
             </div>
           ) : (
             <>
-              <h1 className="text-zinc-600  text-[16px] font-semibold">{authUser?.username}</h1>
+              <h1 className="text-zinc-600  text-[16px] font-semibold">
+                {authUser?.username}
+              </h1>
             </>
           )}
         </section>
