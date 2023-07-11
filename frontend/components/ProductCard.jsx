@@ -7,15 +7,15 @@ const ProductCard = () => {
   return (
     <div>
       <div
-        className="transform w-[213px] h-[253px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] duration-200 hover:scale-105 "
+        className="transform  md:w-[213px] md:h-[253px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] duration-200 hover:scale-105 "
         href="/product/1"
       >
         <div>
           <Link href="/product/1">
             <img
-              className=""
+              className="w-[130px]"
               alt="product book image"
-              src="/assets/atomic-book.png"
+              src="https://m.media-amazon.com/images/I/41j-s9fHJcL.jpg"
             ></img>
           </Link>
           <div className="w-6 h-6 rounded-full justify-center items-center flex  bg-white absolute top-2 right-2 ">

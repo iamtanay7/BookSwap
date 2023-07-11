@@ -11,11 +11,11 @@ const ProudctCarousel = () => {
     },
     tablet: {
       breakpoint: { max: 1023, min: 464 },
-      items: 4,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 767, min: 0 },
-      items: 3,
+      items: 1,
     },
   };
 
