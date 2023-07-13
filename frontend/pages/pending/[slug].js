@@ -5,8 +5,8 @@ import React from "react";
 const Pending = () => {
   return (
     <Wrapper>
-      <div className="flex justify-center flex-col  h-screen">
-        <section className="flex justify-center ">
+      <div className="flex justify-center flex-col pt-16  py-16 md:py-0  h-screen">
+        <section className="flex justify-center pt-16 md:-mt-16 ">
           <div className="w-[304px] h-[59px] text-center text-black text-[30px] md:text-[35px] font-bold">
             Swap Pending
           </div>
@@ -43,9 +43,9 @@ const Pending = () => {
             </section>
           </div>
         </section>
-        <section className="flex justify-center pt-8 md:p-0">
+        <section className="flex justify-center pt-4 pb-16 md:p-0">
           <Link href="/">
-            <div className="md:w-[226px] h-[38px] md:h-[66px] flex justify-center items-center bg-[#228D5A] rounded-xl shadow">
+            <div className="md:w-[226px] h-[48px] md:h-[66px] flex justify-center items-center bg-[#228D5A] rounded-xl shadow">
               <div className="md:w-[211px] w-[200px] text-center text-[#FFF1F1] text-lg  md:text-[24px] font-semibold">
                 Return to Home
               </div>

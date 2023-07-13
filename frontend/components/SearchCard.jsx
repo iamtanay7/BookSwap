@@ -9,8 +9,7 @@ const SearchCard = () => {
       <div className="flex gap-12">
         <div>
           <div
-            className="transform w-[213px] h-[253px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] duration-200 hover:scale-105 "
-            href="/product/1"
+            className="transform md:w-[213px] md:h-[253px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] duration-200 hover:scale-105 "
           >
             <div>
               <Link href="/product/1">
@@ -28,7 +27,7 @@ const SearchCard = () => {
         </div>
         <div className="flex justify-center items-center">
           <div className="mt-2 pb-2">
-            <div className="flex flex-col  ">
+            <Link href={`/product/1`} className="flex flex-col  ">
               <div className="text-black text-[16px] font-bold -mb-1">
                 Atomic Habits
               </div>
@@ -39,11 +38,11 @@ const SearchCard = () => {
                 <div className="text-[13px] font-normal text-black">4.5</div>
                 <AiOutlineStar className="md:text-[12px] text-[4px]"></AiOutlineStar>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
-      <div class="w-[620px] h-[0px] border border-neutral-200 my-8"></div>
+      <div class="md:w-[620px] h-[0px] border border-neutral-200 my-8"></div>
     </div>
   );
 };
