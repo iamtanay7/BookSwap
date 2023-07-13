@@ -1,5 +1,6 @@
 import BookReviews from "@/components/BookReviews";
 import Wrapper from "@/components/Wrapper";
+import Link from "next/link";
 import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
 
@@ -60,11 +61,13 @@ const User = () => {
               </div>
             </section>
             <div className="text-center md:text-start">
-              <button className="shadow-sm md:w-[263px] w-[250px] h-[50px] md:h-[66px] bg-[#228D5A] rounded-xl transform hover:scale-105 duration-300 ease-in-out">
-                <div class="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[24px] font-semibold">
-                  Set Up Swap
-                </div>
-              </button>
+              <Link href={`/schedule/ryan`}>
+                <button className="shadow-sm md:w-[263px] w-[250px] h-[50px] md:h-[66px] bg-[#228D5A] rounded-xl transform hover:scale-105 duration-300 ease-in-out">
+                  <div class="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[24px] font-semibold">
+                    Set Up Swap
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
         </section>

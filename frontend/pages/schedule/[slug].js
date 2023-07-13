@@ -1,3 +1,4 @@
+import Wrapper from "@/components/Wrapper";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -5,14 +6,14 @@ import { AiOutlineSearch } from "react-icons/ai";
 const Schedule = () => {
   const [selected, SetSelected] = useState(false);
   return (
-    <div className="flex justify-center flex-col items-center py-12">
-      <div className="gap-4 flex flex-col">
-        <div className="w-[245px] h-[31px] text-black text-[20px] font-normal">
-          Set Up Swap with Ryan
+    <div className="flex justify-center flex-col items-center  py-12">
+      <div className="gap-4 flex flex-col ">
+        <div className="md:w-[245px] h-[31px] mx-auto md:mx-0 text-black text-[20px] font-normal">
+          <div className="text-center">Set Up Swap with Ryan</div>
         </div>
         {/* date */}
         <div className="text-black text-[16px] font-bold">Date</div>
-        <div className="w-[380px] h-[47px] bg-zinc-100 rounded-md ">
+        <div className="md:w-[380px] w-[95%] mx-auto md:mx-0  h-[47px] bg-zinc-100 rounded-md ">
           <section className="flex flex-row gap-4 justify-start items-center w-full h-full">
             <input
               type="date"
@@ -23,7 +24,7 @@ const Schedule = () => {
         </div>
         {/* Time */}
         <div className="text-black text-[16px] font-bold">Time</div>
-        <section className="flex flex-row gap-4 h-[47px]">
+        <section className="flex flex-row gap-4 h-[47px] md:w-[380px] w-[95%] mx-auto md:mx-0">
           <input
             type="time"
             className="w-full h-full bg-zinc-100 text-zinc-400 font-bold text-start rounded text-[16px] px-8 outline-none"
@@ -31,7 +32,7 @@ const Schedule = () => {
         </section>
         {/* location */}
         <div className="text-black text-[16px] font-bold">Location</div>
-        <div className="w-[380px] h-[47px] bg-[#F3F3F3] rounded-md flex justify-start pl-2 items-center">
+        <div className="md:w-[380px] w-[95%] mx-auto md:mx-0 h-[47px] bg-[#F3F3F3] rounded-md flex justify-start pl-2 items-center">
           <AiOutlineSearch
             color="#B0B0B0"
             className="pl-2 h-8 w-8"
@@ -45,7 +46,7 @@ const Schedule = () => {
         <div className="text-black text-[16px] font-medium">
           Recommended Locations
         </div>
-        <section className="grid grid-col grid-cols-2 gap-4">
+        <section className="grid grid-col grid-cols-2 gap-4 pl-4 md:pl-0">
           <button
             onClick={() => {
               if (selected) {
@@ -54,14 +55,14 @@ const Schedule = () => {
                 SetSelected(true);
               }
             }}
-            className={`w-[163px] h-[34px] cursor-pointer rounded-xl justify-center items-center flex ${
+            className={`md:w-[163px] h-[34px] cursor-pointer rounded-xl justify-center items-center flex ${
               selected ? "bg-[#EBBA0C] " : "bg-zinc-100"
             }`}
           >
             <div
               className={`${
                 selected ? "text-white" : "text-black"
-              } text-[16px] font-medium`}
+              } text-[16px] font-medium px-2`}
             >
               Midtown Library
             </div>
@@ -69,14 +70,14 @@ const Schedule = () => {
         </section>
         {/* notes */}
         <div className="text-black text-[16px] font-bold">Notes</div>
-        <div className="w-[380px] h-[132px] bg-[#F3F3F3] rounded-sm flex justify-start items-start">
+        <div className="md:w-[380px] w-full mx-auto md:mx-0 h-[132px] bg-[#F3F3F3] rounded-sm flex justify-start items-start">
           <textarea className="w-full h-full bg-[#F3F3F3] rounded-sm outline-none flex justify-start items-start text-zinc-400 font-bold text-start p-2 text-[16px]"></textarea>
         </div>
         {/* CONFIRM BUTTON */}
-        <section className="flex justify-end mt-4">
+        <section className="flex justify-center  md:justify-end mt-4">
           <Link href="/pending/d">
-            <button className="w-[226px] h-[66px] bg-[#228D5A] rounded-xl shadow flex justify-center items-center hover:scale-105 duration-300 ease-in-out cursor-pointer">
-              <div className="w-[211px] text-center text-[#FFF1F1] text-[24px] font-semibold">
+            <button className="md:w-[226px]  w-[200px] h-[66px] bg-[#228D5A] rounded-xl shadow flex justify-center items-center hover:scale-105 duration-300 ease-in-out cursor-pointer">
+              <div className="md:w-[211px] text-center text-[#FFF1F1] md:text-[24px] font-semibold">
                 Confirm
               </div>
             </button>
