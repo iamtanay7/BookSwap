@@ -9,7 +9,7 @@ const Footer = () => {
           className="hidden md:block"
           alt="bookswap logo"
         />
-        <div className="text-[10px] ml-auto pr-20 md:text-[14px] font-medium text-[#f6f6f6] hover:text-white cursor-pointer text-center md:text-left">
+        <div className="text-[10px] mb-8 md:mb-0 ml-auto pr-20 md:text-[14px] font-medium text-[#f6f6f6] hover:text-white cursor-pointer text-center md:text-left">
           © 2023 BookSwap-Colab20, Inc. All Rights Reserved
         </div>
       </div>

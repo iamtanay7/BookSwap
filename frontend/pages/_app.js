@@ -1,4 +1,5 @@
 // import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { AuthUserProvider } from "@/firebase/auth";
@@ -55,6 +56,7 @@ export default function App({ Component, pageProps }) {
       <AuthUserProvider>
         <Header></Header>
         <Component {...pageProps} />
+        <BottomNav></BottomNav>
         <Footer></Footer>
       </AuthUserProvider>
     </>
