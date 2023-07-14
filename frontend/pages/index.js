@@ -3,8 +3,25 @@ import PeopleNearMe from "@/components/PeopleNearMe";
 import ProductCard from "@/components/ProductCard";
 import ProudctCarousel from "@/components/ProductCarousel";
 import Wrapper from "@/components/Wrapper";
+import { fetchDataFromApi } from "@/utils/api";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
+  const [data, setData] = useState(null);
+
+  //fetching data from api
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  //setting the results in setData state
+  const fetchProducts = async () => {
+    const data = await fetchDataFromApi("/api/books");
+    console.log("data fetched");
+    setData(data);
+  };
+
   return (
     <main>
       <HeroBanner />
@@ -17,7 +34,6 @@ export default function Home() {
       </section>
       {/* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  gap-5 my-12 px-8  md:px-20 */}
       <div className=" my-12 px-8  md:px-20">
-       
         {/* <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
@@ -25,7 +41,7 @@ export default function Home() {
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard> */}
-        
+
         <ProudctCarousel></ProudctCarousel>
       </div>
       <section className="w-full max-w-[1280px] px-5 md:px-20">

@@ -3,13 +3,16 @@ import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
 import Wrapper from "@/components/Wrapper";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
 import BookReviews from "@/components/BookReviews";
 
 const ProductDetails = () => {
+  useEffect(() => {
+    console.log("Product fetched");
+  }, []);
   return (
     <div className="w-full md:pt-20 md:pb-8 ">
       <Wrapper>
