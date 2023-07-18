@@ -13,35 +13,11 @@ const User = () => {
             <img
               className="rounded-full w-[220px] h-[220px] mt-4 md:mt-0 md:w-[345px] md:h-[345px]"
               alt="profile image"
-              src="/assets/ryan.png"
+              src="https://www.salesforce.com/content/dam/blogs/uk/authors/samantha-williams.jpg"
             ></img>
           </div>
 
-          {/* <div className="gap-16 flex flex-col md:justify-center pt-4 md:pl-8">
-            <section className="flex flex-col justify-center ">
-              <div class="w-[186px] text-center h-[49px] text-black text-[32px] font-semibold">
-                Ryan
-              </div>
-              <div class="w-[236px] h-[63px] text-black text-[16px] font-normal -mb-4">
-                1.3 Miles away
-                <br />
-              </div>
-              <div className="flex gap-8">
-                <div class="text-black text-[24px] font-normal">4.5 </div>
-                <div class="text-black text-[13px] font-normal underline">
-                  (17 reviews)
-                </div>
-              </div>
-            </section>
-
-            <div className="-ml-4 md:-ml-4">
-              <button className="shadow-sm w-[263px] h-[66px] bg-[#228D5A] rounded-xl transform hover:scale-105 duration-300 ease-in-out">
-                <div class="w-[245.54px] text-center text-[#FFF1F1] text-[24px] font-semibold">
-                  Set Up Swap
-                </div>
-              </button>
-            </div>
-          </div> */}
+        
 
           <div className="gap-4 md:gap-16  flex flex-col justify-center  md:pt-4 md:pl-8">
             <section className="flex flex-col justify-center pt-4 md:pt-4  ">
@@ -104,7 +80,7 @@ const User = () => {
             ></img>
             <img
               className="h-[230px]  object-contain"
-              src="/assets/book2.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeh0s_HpAJoy1jb4riMec8O7j1QKJsqwNJ2EPPiJgW3JdGscwAOxZoxMulSsbJJAAoyCU&usqp=CAU"
               alt="book image"
             ></img>
           </div>
