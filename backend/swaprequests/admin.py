@@ -7,7 +7,7 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'location']
+    list_display = ['name', 'location']
 
 @admin.register(BookReview)
 class BookReviewAdmin(admin.ModelAdmin):
