@@ -38,3 +38,11 @@ class BookExchangeListCreateAPIView(generics.ListCreateAPIView):
 class BookExchangeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BookExchange.objects.all()
     serializer_class = BookExchangeSerializer
+
+class BookSearchAPIView(generics.ListAPIView):
+    serializer_class = BookSerializer
+
+    def get_queryset(self):
+        title = self.request.query_params.get('title', '')
+        queryset = Book.objects.filter(title__icontains=title)
+        return queryset
