@@ -3,7 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import PeopleCard from "./PeopleCard";
 
-const PeopleNearMe = () => {
+const PeopleNearMe = ({ data }) => {
+  console.log(data, "profiles dta");
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -26,17 +27,9 @@ const PeopleNearMe = () => {
         containerClass="-mx-[10px]"
         itemClass="px-[10px]"
       >
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-        <PeopleCard></PeopleCard>
-       
+        {data?.map((profile) => (
+          <PeopleCard key={profile.id} data={profile}></PeopleCard>
+        ))}
       </Carousel>
     </div>
   );

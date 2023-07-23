@@ -8,11 +8,57 @@ import React, { useEffect } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
 import BookReviews from "@/components/BookReviews";
+import { useState } from "react";
+import { fetchDataFromApi } from "@/utils/api";
+
+import { useRouter } from "next/router";
 
 const ProductDetails = () => {
+  
+  const router = useRouter();
+  const id = router.query;
+  // console.log(id.slug, "id");
+
+  const [data, setData] = useState(null);
+  const [profiles, setProfiles] = useState(null);
+  const [bookReviewsData, setBookReviewsData] = useState(null);
+
+  //fetching data from api
   useEffect(() => {
-    console.log("Product fetched");
+    fetchProducts();
+    fetchUserProfiles();
+    fetchBookReviews();
   }, []);
+
+  //setting the results in setData state
+  const fetchProducts = async () => {
+    const data = await fetchDataFromApi(`/api/books/${id.slug}`);
+    // console.log("data fetched", data);
+    setData(data);
+  };
+
+  //fetch user profiles
+  const fetchUserProfiles = async () => {
+    const data = await fetchDataFromApi(`/api/user-profiles`);
+    setProfiles(data);
+  };
+  //fetch book reviews
+  const fetchBookReviews = async () => {
+    const data = await fetchDataFromApi(`/api/book-reviews/${id.slug}`);
+    setBookReviewsData(data);
+
+    console.log(data, "books review");
+  };
+
+  // Fetch data on page load and whenever the slug ID changes / refresh
+  useEffect(() => {
+    if (id) {
+      fetchProducts();
+      fetchUserProfiles();
+      fetchBookReviews();
+    }
+  }, [id]);
+
   return (
     <div className="w-full md:pt-20 md:pb-8 ">
       <Wrapper>
@@ -20,15 +66,12 @@ const ProductDetails = () => {
         <section className="w-full  md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
           <div className=" flex flex-col md:flex-row gap-10">
             <div>
-              <div
-                className="transform md:w-[390px] h-[427px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] "
-                href="/product/1"
-              >
+              <div className="transform md:w-[390px] h-[427px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] ">
                 <div>
                   <img
                     className=" w-[214px] h-[324px]"
                     alt="product book image"
-                    src="/assets/atomic-book.png"
+                    src={data?.thumbnail_url}
                   ></img>
 
                   <div className="w-8 h-8 rounded-full justify-center items-center flex  bg-white absolute top-2 right-2 ">
@@ -40,24 +83,26 @@ const ProductDetails = () => {
             {/* title, details and button start*/}
             <div className="gap-4 md:gap-16 flex flex-col justify-center  md:pt-4 md:pl-8">
               <section className="flex flex-col justify-center  ">
-                <div class="text-center md:text-start md:w-[186px] h-[30px] md:h-[49px] text-black text-[32px] font-semibold">
-                  Make Time
+                <div className="text-center md:text-start md:w-full h-[30px] md:h-[49px] text-black text-[32px] font-semibold">
+                  {data?.title}
                 </div>
-                <div class="text-center md:w-[236px] h-[63px] text-black text-[16px] font-normal -mb-4">
-                  By Jake Knapp, John Zeratsky
+                <div className="text-center md:text-start md:w-full h-[63px] text-black text-[16px] font-normal -mb-4">
+                  By {data?.author}
                   <br />
                 </div>
                 <div className="flex md:gap-8 gap-4 md:justify-start justify-center">
-                  <div class="text-black text-[24px] font-normal">4.5 </div>
-                  <div class="text-black text-[13px] font-normal underline">
+                  <div className="text-black text-[24px] font-normal">
+                    {data?.rating}
+                  </div>
+                  <div className="text-black text-[13px] font-normal underline">
                     (17 reviews)
                   </div>
                 </div>
               </section>
               <div className="text-center md:text-start">
                 <button className="shadow-sm md:w-[263px] w-[250px] h-[50px] md:h-[66px] bg-[#228D5A] rounded-xl transform hover:scale-105 duration-300 ease-in-out">
-                  <div class="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[24px] font-semibold">
-                    5 Books Available
+                  <div className="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[20px] font-semibold">
+                    {data?.no_of_books_available} Books Available
                   </div>
                 </button>
               </div>
@@ -69,46 +114,40 @@ const ProductDetails = () => {
 
         {/* Synopsis section start */}
         <section className="my-8">
-          <div class="md:w-[245px] h-[31px] text-black text-[24px] font-semibold">
+          <div className="md:w-[245px] h-[31px] text-black text-[24px] font-semibold">
             Synopsis
           </div>
-          <div class="w-full  text-black text-[16px] font-normal">
-            Nobody ever looked at an empty calendar and said, "The best way to
-            spend this time is by cramming it full of meetings!" or got to work
-            in the morning and thought, Today I'll spend hours on Facebook! Yet
-            that's exactly what we do. Why? <br />
-            <br />
-            In a world where information refreshes endlessly and the workday
-            feels like a race to react to other people's priorities faster,
-            frazzled and distracted has become our default position. But what if
-            the exhaustion of constant busyness wasn't mandatory? What if you
-            could step off the hamster wheel and start taking control of your
-            time and attention? That's what this book is about.
+          <div className="w-full  text-black text-[16px] font-normal">
+            {data?.synopsis}
           </div>
         </section>
-        <div class="w-1/2 md:w-[851px] h-[0px] border border-[#E3E3E3] mx-auto"></div>
+        <div className="w-1/2 md:w-[851px] h-[0px] border border-[#E3E3E3] mx-auto"></div>
         {/* Synopsis section end */}
 
         {/* Book Swap Near Me section Component Start*/}
         <section className="my-8">
-          <div class="w-80 h-[31px] text-black text-[24px] font-semibold">
+          <div className="w-80 h-[31px] text-black text-[24px] font-semibold">
             Book Swaps Near Me
           </div>
         </section>
         <section>
           {/* book nearme Component start*/}
-          <PeopleNearMe></PeopleNearMe>
+          {profiles && <PeopleNearMe data={profiles}></PeopleNearMe>}
+
           {/* book nearme Component end */}
         </section>
         {/* Book Swap Near Me section End*/}
 
         <section className="mt-8 mb-4">
-          <div class="md:w-[851px] h-[0px] border border-[#E3E3E3] mx-auto "></div>
+          <div className="md:w-[851px] h-[0px] border border-[#E3E3E3] mx-auto "></div>
           <div className="w-[245px] h-[31px] text-black text-[24px] font-semibold py-12 ">
             Book Reviews
           </div>
           <div className="flex justify-center items-center pt-2">
-            <BookReviews></BookReviews>
+            {/* book review components */}
+            {bookReviewsData && (
+              <BookReviews data={bookReviewsData}></BookReviews>
+            )}
           </div>
         </section>
       </Wrapper>

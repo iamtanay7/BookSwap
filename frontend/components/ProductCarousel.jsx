@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCard from "./ProductCard";
 
-const ProudctCarousel = () => {
+const ProudctCarousel = ({data}) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -26,13 +26,16 @@ const ProudctCarousel = () => {
         containerClass="-mx-[10px]"
         itemClass="px-[10px]"
       >
+        {data?.map((book) => (
+          <ProductCard key={book.id} data={book}></ProductCard>
+        ))}
+        {/* <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
+        <ProductCard></ProductCard> */}
       </Carousel>
     </div>
   );
