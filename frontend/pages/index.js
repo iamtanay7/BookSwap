@@ -17,10 +17,11 @@ export default function Home() {
 
   //setting the results in setData state
   const fetchProducts = async () => {
-    const data = await fetchDataFromApi("/api/books");
-    console.log("data fetched");
+    const data = await fetchDataFromApi();
+    console.log("data fetched", data);
     setData(data);
   };
+  // fetchProducts()
 
   return (
     <main>
