@@ -4,7 +4,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
 
 const ProductCard = ({data}) => {
-  console.log(data, "book");
+  
   return (
     <div>
       <div

@@ -18,7 +18,7 @@ export default function Home() {
   //setting the results in setData state
   const fetchProducts = async () => {
     const data = await fetchDataFromApi("/api/books");
-    console.log("data fetched", data);
+    // console.log("data fetched", data);
     setData(data);
   };
 

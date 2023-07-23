@@ -45,7 +45,6 @@ const ProductDetails = () => {
     const data = await fetchDataFromApi(`/api/book-reviews/${id.slug}`);
     setBookReviewsData(data);
 
-    console.log(data, "books review");
   };
 
   // Fetch data on page load and whenever the slug ID changes / refresh

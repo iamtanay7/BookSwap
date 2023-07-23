@@ -3,20 +3,20 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
 import Link from "next/link";
 
-const SearchCard = () => {
+const SearchCard = ({data}) => {
   return (
-    <div>
+    <div >
       <div className="flex gap-12">
         <div>
           <div
             className="transform md:w-[213px] md:h-[253px] flex items-center justify-center  overflow-hidden bg-[#F6F6F6] duration-200 hover:scale-105 "
           >
             <div>
-              <Link href="/product/1">
+              <Link className="" href={`/product/${data?.id}`}>
                 <img
-                  className=""
+                  className="w-[150px] object-contain"
                   alt="product book image"
-                  src="/assets/atomic-book.png"
+                  src={data?.thumbnail_url}
                 ></img>
               </Link>
               <div className="w-6 h-6 rounded-full justify-center items-center flex  bg-white absolute top-2 right-2 ">
@@ -29,13 +29,13 @@ const SearchCard = () => {
           <div className="mt-2 pb-2">
             <Link href={`/product/1`} className="flex flex-col  ">
               <div className="text-black text-[16px] font-bold -mb-1">
-                Atomic Habits
+                {data?.title}
               </div>
               <div className="text-black text-[13px] font-normal">
-                James Clear
+                {data?.author}
               </div>
               <div className="flex items-center gap-1">
-                <div className="text-[13px] font-normal text-black">4.5</div>
+                <div className="text-[13px] font-normal text-black">{data?.rating}</div>
                 <AiOutlineStar className="md:text-[12px] text-[4px]"></AiOutlineStar>
               </div>
             </Link>

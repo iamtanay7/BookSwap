@@ -52,7 +52,7 @@ const Pending = () => {
         <section className="flex justify-center pt-4 pb-16 md:p-0">
           <Link href="/">
             <div className="md:w-[226px] h-[48px] md:h-[66px] flex justify-center items-center bg-[#228D5A] rounded-xl shadow">
-              <div className="md:w-[211px] w-[200px] text-center text-[#FFF1F1] text-lg  md:text-[24px] font-semibold">
+              <div className="md:w-[211px] w-[200px] text-center text-[#FFF1F1] text-lg  md:text-[20px] font-semibold">
                 Return to Home
               </div>
             </div>
