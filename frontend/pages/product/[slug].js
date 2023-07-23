@@ -14,10 +14,8 @@ import { fetchDataFromApi } from "@/utils/api";
 import { useRouter } from "next/router";
 
 const ProductDetails = () => {
-  
   const router = useRouter();
   const id = router.query;
-  // console.log(id.slug, "id");
 
   const [data, setData] = useState(null);
   const [profiles, setProfiles] = useState(null);

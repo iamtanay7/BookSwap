@@ -1,8 +1,14 @@
 import Wrapper from "@/components/Wrapper";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Pending = () => {
+  const router = useRouter();
+  const receivedData = router.query.data ? JSON.parse(router.query.data) : null;
+
+  console.log(receivedData, "pending received data");
+
   return (
     <Wrapper>
       <div className="flex justify-center flex-col pt-16  py-16 md:py-0  h-screen">
@@ -19,26 +25,26 @@ const Pending = () => {
             ></img>
           </div>
           <div className="flex flex-col justify-start items-start my-auto -mt-8  md:mt-8">
-            <div class="md:w-[382px] h-[136px] text-black text-[15px] font-medium">
+            <div className="md:w-[382px] h-[136px] text-black text-[15px] font-medium">
               The book swapper was sent your request. If the exchange approve,
               you can message them through chat for further correspondence.
             </div>
 
             <section className="-mt-4">
-              <div className="text-start text-black text-[15px] font-bold">
+              {/* <div className="text-start text-black text-[15px] font-bold">
                 Book: Make Time
+              </div> */}
+              <div className="text-start text-black text-[15px] font-bold">
+                Book Exchanger: {receivedData?.name}
               </div>
               <div className="text-start text-black text-[15px] font-bold">
-                Book Exchanger: Ryan
+                Date: {receivedData?.date}
               </div>
               <div className="text-start text-black text-[15px] font-bold">
-                Date: 3/ 21 /23
+                Location: {receivedData?.location}
               </div>
               <div className="text-start text-black text-[15px] font-bold">
-                Location: Cafe
-              </div>
-              <div className="text-start text-black text-[15px] font-bold">
-                Notes: N/A
+                Notes: {receivedData?.note ? receivedData.note : <p>N/A</p>}
               </div>
             </section>
           </div>

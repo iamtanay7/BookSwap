@@ -8,7 +8,7 @@ const PeopleCard = ({ data }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-2">
       {/* IMAGE section goes here link tag to route start */}
-      <Link href={`/user/ryan`}>
+      <Link href={`/user/${data?.id}`}>
         <img
           alt="people info image"
           className="w-[131px] h-[127px] bg-zinc-300 rounded-full mb-1"

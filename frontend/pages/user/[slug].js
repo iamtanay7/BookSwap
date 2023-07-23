@@ -1,10 +1,37 @@
 import BookReviews from "@/components/BookReviews";
 import Wrapper from "@/components/Wrapper";
+import { fetchDataFromApi } from "@/utils/api";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 
 const User = () => {
+  const router = useRouter();
+  const id = router.query;
+
+  const [user, setUser] = useState(null);
+  //fetching data from api
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  //setting the results in setData state
+  const fetchUser = async () => {
+    const data = await fetchDataFromApi(`/api/user-profiles/${id.slug}`);
+    console.log("user data", data);
+    setUser(data);
+  };
+
+  // Fetch data on page load and whenever the slug ID changes / refresh
+  useEffect(() => {
+    if (id) {
+      fetchUser();
+    }
+  }, [id]);
+
+  const dataToSend = user?.name
+
   return (
     <div className="w-full pt-4  md:pt-20 md:pb-8 ">
       <Wrapper>
@@ -13,33 +40,31 @@ const User = () => {
             <img
               className="rounded-full w-[220px] h-[220px] mt-4 md:mt-0 md:w-[345px] md:h-[345px]"
               alt="profile image"
-              src="https://www.salesforce.com/content/dam/blogs/uk/authors/samantha-williams.jpg"
+              src={user?.profile_photo_url}
             ></img>
           </div>
 
-        
-
           <div className="gap-4 md:gap-16  flex flex-col justify-center  md:pt-4 md:pl-8">
             <section className="flex flex-col justify-center pt-4 md:pt-4  ">
-              <div class="text-center md:text-start md:w-[186px] h-[30px] md:h-[49px] text-black text-[32px] font-semibold">
-                Ryan
+              <div class="text-center md:text-start md:w-full h-[30px] md:h-[49px] text-black text-[32px] font-semibold">
+                {user?.name}
               </div>
               <div class="md:w-[236px] pt-1 md:pt-0 text-center md:text-start h-[63px] text-black text-[16px] font-normal -mb-4">
-                1.3 Miles away
+                {user?.miles_away} Miles away
                 <br />
               </div>
 
               <div className="flex md:gap-8 gap-4 md:justify-start justify-center">
-                <div class="text-black text-[24px] font-normal">4.5 </div>
+                <div class="text-black text-[24px] font-normal">4.5</div>
                 <div class="text-black text-[13px] font-normal underline">
                   (17 reviews)
                 </div>
               </div>
             </section>
             <div className="text-center md:text-start">
-              <Link href={`/schedule/ryan`}>
+              <Link href={`/schedule/${encodeURIComponent(dataToSend)}`}>
                 <button className="shadow-sm md:w-[263px] w-[250px] h-[50px] md:h-[66px] bg-[#228D5A] rounded-xl transform hover:scale-105 duration-300 ease-in-out">
-                  <div class="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[24px] font-semibold">
+                  <div class="md:w-[245.54px] text-center text-[#FFF1F1] md:text-[20px] font-semibold">
                     Set Up Swap
                   </div>
                 </button>
@@ -93,7 +118,7 @@ const User = () => {
             Book Swapper Reviews
           </div>
           <div className="flex justify-center items-center pt-2">
-            <BookReviews></BookReviews>
+            {user?.user_review}
           </div>
         </section>
         {/* book swapper reviews end */}

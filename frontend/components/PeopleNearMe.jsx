@@ -28,7 +28,7 @@ const PeopleNearMe = ({ data }) => {
         itemClass="px-[10px]"
       >
         {data?.map((profile) => (
-          <PeopleCard key={profile.id} data={profile}></PeopleCard>
+          <PeopleCard  key={profile.id} data={profile}></PeopleCard>
         ))}
       </Carousel>
     </div>
