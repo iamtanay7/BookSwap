@@ -6,11 +6,14 @@ import { AuthUserProvider } from "@/firebase/auth";
 import "@/styles/globals.css";
 import Head from "next/head";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>BookSwap | Exchange your old Books</title>
+        <title>BookSwap</title>
         <meta
           name="description"
           content="Book Swap | Exchange your old Books"
@@ -26,6 +29,7 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <AuthUserProvider>
+        <ToastContainer></ToastContainer>
         <Header></Header>
         <Component {...pageProps} />
         <BottomNav></BottomNav>

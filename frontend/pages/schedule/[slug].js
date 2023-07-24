@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRouter } from "next/router";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Schedule = () => {
   const router = useRouter();
   const receivedData = router.query;
@@ -29,15 +32,46 @@ const Schedule = () => {
     };
 
     if (date && location) {
+      successButton();
       router.push({
         pathname: `/pending/${receivedData.slug}`,
         query: { data: JSON.stringify(dataToSend) }, // Convert object to JSON string and send as a query parameter
       });
+      return;
     }
+    deleteButton();
+  };
+
+  const deleteButton = () => {
+    toast.warning("Please! Fill Info", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const successButton = () => {
+    toast.success("Success! Happy Reading", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
     <div className="flex justify-center flex-col items-center  py-12">
+      <ToastContainer></ToastContainer>
+
       <div className="gap-4 flex flex-col ">
         <div className="md:w-full h-[31px] mx-auto md:mx-0 text-black text-[20px] font-normal">
           <div className="text-center">
@@ -52,7 +86,7 @@ const Schedule = () => {
               required
               onChange={(e) => SetDate(e.target.value)}
               type="date"
-              className="dateStyle w-full h-full bg-zinc-100 text-zinc-400 text-[16px] font-bold rounded  text-start px-8 outline-none"
+              className="dateStyle cursor-pointer w-full h-full bg-zinc-100 text-zinc-400 text-[16px] font-bold rounded  text-start px-8 outline-none"
               placeholder="dd / mm / yyyy"
             ></input>
           </section>
@@ -63,7 +97,7 @@ const Schedule = () => {
           <input
             onChange={(e) => SetTime(e.target.value)}
             type="time"
-            className="w-full h-full bg-zinc-100 text-zinc-400 font-bold text-start rounded text-[16px] px-8 outline-none"
+            className="w-full h-full cursor-pointer bg-zinc-100 text-zinc-400 font-bold text-start rounded text-[16px] px-8 outline-none"
           ></input>
         </section>
         {/* location */}
@@ -102,7 +136,7 @@ const Schedule = () => {
                 selected ? "text-white" : "text-black"
               } text-[16px] font-medium px-2`}
             >
-              Midtown Library
+              Public Library
             </div>
           </button>
         </section>

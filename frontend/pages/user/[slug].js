@@ -33,7 +33,9 @@ const User = () => {
 
   const dataToSend = user?.name;
 
-  return (
+  return !user? (
+    <Loader></Loader>
+  ) : (
     <div className="w-full pt-4  md:pt-20 md:pb-8 ">
       <Wrapper>
         <section className="flex flex-col md:flex-row gap-4 md:gap-28 md:mx-12">
@@ -56,7 +58,7 @@ const User = () => {
               </div>
 
               <div className="flex md:gap-8 gap-4 md:justify-start justify-center">
-                <div class="text-black text-[24px] font-normal">4.5</div>
+                <div class="text-black text-[24px] font-normal">{user?.user_rating}</div>
                 <div class="text-black text-[13px] font-normal underline">
                   (17 reviews)
                 </div>
@@ -106,7 +108,7 @@ const User = () => {
             ></img>
             <img
               className="h-[230px]  object-contain"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeh0s_HpAJoy1jb4riMec8O7j1QKJsqwNJ2EPPiJgW3JdGscwAOxZoxMulSsbJJAAoyCU&usqp=CAU"
+              src="/assets/book2.png"
               alt="book image"
             ></img>
           </div>

@@ -42,8 +42,12 @@ const ProductDetails = () => {
     setProfiles(data);
   };
   //fetch book reviews
+
+  //quick fix Id wheren't matching up so the difference where 15 so - it will update later
+  const bookReviewID = id.slug - 15;
+
   const fetchBookReviews = async () => {
-    const data = await fetchDataFromApi(`/api/book-reviews/${id.slug}`);
+    const data = await fetchDataFromApi(`/api/book-reviews/${bookReviewID}`);
     setBookReviewsData(data);
   };
 
@@ -56,7 +60,9 @@ const ProductDetails = () => {
     }
   }, [id]);
 
-  return (
+  return !data? (
+    <Loader></Loader>
+  ) : (
     <div className="w-full md:pt-20 md:pb-8 ">
       <Wrapper>
         {/* book Image and Titles section start */}

@@ -1,5 +1,5 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://tanaysh.pythonanywhere.com";
+  process.env.NEXT_PUBLIC_API_URL || "https://tanaysh.pythonanywhere.com";
 
   
 // export const API_URL =

@@ -19,7 +19,7 @@ const PeopleCard = ({ data }) => {
         <div className=" flex justify-center items-center ">
           <div className="text-[#FFF1F1] text-[15px] font-medium mt-2 ">
             {/* {randomRating.toFixed(1)} */}
-            4.5
+            {data?.user_rating}
           </div>
         </div>
       </div>

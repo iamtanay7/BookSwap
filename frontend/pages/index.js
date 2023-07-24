@@ -1,4 +1,5 @@
 import HeroBanner from "@/components/HeroBanner";
+import Loader from "@/components/Loader";
 import PeopleNearMe from "@/components/PeopleNearMe";
 import ProductCard from "@/components/ProductCard";
 import ProudctCarousel from "@/components/ProductCarousel";
@@ -6,6 +7,7 @@ import Wrapper from "@/components/Wrapper";
 import { fetchDataFromApi } from "@/utils/api";
 import { useEffect } from "react";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -24,7 +26,9 @@ export default function Home() {
 
   const trimData = data?.slice(8, 15);
 
-  return (
+  return !data ? (
+    <Loader></Loader>
+  ) : (
     <main>
       <HeroBanner />
       <section className="w-full max-w-[1280px] px-5 md:px-20">
@@ -34,7 +38,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <div className=" my-12 px-8  md:px-20">
         {trimData && <ProudctCarousel data={trimData}></ProudctCarousel>}
       </div>
