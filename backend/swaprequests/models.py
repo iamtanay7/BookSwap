@@ -21,6 +21,7 @@ class UserProfile(models.Model):
     miles_away = models.FloatField()
     user_review = models.TextField()
     profile_photo_url = models.URLField()
+    user_rating = models.FloatField()
 
 
 class BookReview(models.Model):
