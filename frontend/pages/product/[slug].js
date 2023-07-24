@@ -12,6 +12,7 @@ import { useState } from "react";
 import { fetchDataFromApi } from "@/utils/api";
 
 import { useRouter } from "next/router";
+import Loader from "@/components/Loader";
 
 const ProductDetails = () => {
   const router = useRouter();
@@ -44,7 +45,6 @@ const ProductDetails = () => {
   const fetchBookReviews = async () => {
     const data = await fetchDataFromApi(`/api/book-reviews/${id.slug}`);
     setBookReviewsData(data);
-
   };
 
   // Fetch data on page load and whenever the slug ID changes / refresh

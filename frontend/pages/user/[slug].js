@@ -1,4 +1,5 @@
 import BookReviews from "@/components/BookReviews";
+import Loader from "@/components/Loader";
 import Wrapper from "@/components/Wrapper";
 import { fetchDataFromApi } from "@/utils/api";
 import Link from "next/link";
@@ -30,7 +31,7 @@ const User = () => {
     }
   }, [id]);
 
-  const dataToSend = user?.name
+  const dataToSend = user?.name;
 
   return (
     <div className="w-full pt-4  md:pt-20 md:pb-8 ">
