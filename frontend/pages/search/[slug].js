@@ -8,7 +8,7 @@ const Search = () => {
   const slugData = router.query;
   const [dataSearch, setDataSearch] = useState([]);
 
-  console.log(slugData.slug, "slug data");
+ 
 
   useEffect(() => {
     fetchData();
@@ -20,7 +20,7 @@ const Search = () => {
     );
     setDataSearch(data);
 
-    console.log(dataSearch, "search data");
+    
   };
 
   return (

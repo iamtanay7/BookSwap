@@ -8,7 +8,7 @@ const Loader = () => {
         width={150}
         height={150}
         alt="Loading..."
-        src="/assets/spinneryellow.svg"
+        src="/spinneryellow.svg"
       />
     </div>
   );
