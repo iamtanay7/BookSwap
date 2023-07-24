@@ -15,7 +15,7 @@ import Loader from "@/components/Loader";
 
 const provider = new GoogleAuthProvider();
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const { authUser, isLoading } = useAuth();
@@ -109,4 +109,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

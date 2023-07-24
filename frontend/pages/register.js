@@ -18,7 +18,7 @@ import Loader from "@/components/Loader";
 
 const provider = new GoogleAuthProvider();
 
-const register = () => {
+const Register = () => {
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -138,4 +138,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;

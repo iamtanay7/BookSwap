@@ -31,7 +31,7 @@ const Search = () => {
         </div>
         <div className="py-auto px-8">
           {dataSearch &&
-            dataSearch.map((book) => <SearchCard data={book}></SearchCard>)}
+            dataSearch.map((book) => <SearchCard key={book.id} data={book}></SearchCard>)}
         </div>
       </section>
     </div>
