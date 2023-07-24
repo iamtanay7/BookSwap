@@ -7,7 +7,7 @@ const Pending = () => {
   const router = useRouter();
   const receivedData = router.query.data ? JSON.parse(router.query.data) : null;
 
-  console.log(receivedData, "pending received data");
+ 
 
   return (
     <Wrapper>

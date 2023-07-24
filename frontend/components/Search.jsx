@@ -14,7 +14,7 @@ function Search() {
   const router = useRouter();
 
 
-  console.log(clicked, "clicked");
+ 
 
   const handleClick = () => {
     // Toggle the state when the input is clicked
@@ -54,14 +54,14 @@ function Search() {
     const trimed = data.slice(0, 7);
 
     setData(trimed);
-    console.log(data, "search data");
+    
   };
 
   const searchButton = async () => {
     // const data = await fetchDataFromApi(
     //   `/api/books/search/?title=${searchTxt}`
     // );
-    console.log(data, "search data");
+   
     const id = data.id
     router.push(`/search/${searchTxt}`)
 
