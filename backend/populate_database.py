@@ -52,7 +52,8 @@ def populate_users():
                     location = row["Location"],
                     user_review = row["Book Swapper Reviews"],
                     miles_away = row["Miles Away"],
-                    profile_photo_url = row["Photo Url"]
+                    profile_photo_url = row["Photo Url"],
+                    user_rating = row["User Rating"]
             )
 
             # Save the DataModel object to the database
