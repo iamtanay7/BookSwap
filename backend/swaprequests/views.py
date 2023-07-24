@@ -46,3 +46,11 @@ class BookSearchAPIView(generics.ListAPIView):
         title = self.request.query_params.get('title', '')
         queryset = Book.objects.filter(title__icontains=title)
         return queryset
+
+class BookReviewByBookIDAPIView(generics.ListAPIView):
+    serializer_class = BookReviewSerializer
+
+    def get_queryset(self):
+        book_id = self.kwargs['book_id']
+        queryset = BookReview.objects.filter(book_id=book_id)
+        return queryset

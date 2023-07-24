@@ -8,7 +8,8 @@ from swaprequests.views import (
     BookReviewRetrieveUpdateDestroyAPIView,
     BookExchangeListCreateAPIView,
     BookExchangeRetrieveUpdateDestroyAPIView,
-    BookSearchAPIView
+    BookSearchAPIView,
+    BookReviewByBookIDAPIView
 )
 
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
     path('api/book-exchanges/', BookExchangeListCreateAPIView.as_view(), name='book-exchange-list-create'),
     path('api/book-exchanges/<int:pk>/', BookExchangeRetrieveUpdateDestroyAPIView.as_view(), name='book-exchange-retrieve-update-destroy'),
     path('api/books/search/', BookSearchAPIView.as_view(), name='book-search'),
+    path('api/books/<int:book_id>/reviews/', BookReviewByBookIDAPIView.as_view(), name='book-reviews-by-id'),
 ]
